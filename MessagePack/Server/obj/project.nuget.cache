@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "wg7Koi5UPAgeq5l2U3NHuXCMclC1DsaQG46akRuwZYH1QZJ9dkDyKzq6i1yxLpdVPJhbvZCZo1qXA10rB4bchw==",
+  "success": true,
+  "projectFilePath": "/Users/jaycci/projects/Development/MessagePack/Server/PacketTest.csproj",
+  "expectedPackageFiles": [
+    "/Users/jaycci/.nuget/packages/messagepack/2.5.140/messagepack.2.5.140.nupkg.sha512",
+    "/Users/jaycci/.nuget/packages/messagepack.annotations/2.5.140/messagepack.annotations.2.5.140.nupkg.sha512",
+    "/Users/jaycci/.nuget/packages/microsoft.net.stringtools/17.6.3/microsoft.net.stringtools.17.6.3.nupkg.sha512",
+    "/Users/jaycci/.nuget/packages/newtonsoft.json/13.0.3/newtonsoft.json.13.0.3.nupkg.sha512",
+    "/Users/jaycci/.nuget/packages/system.memory/4.5.5/system.memory.4.5.5.nupkg.sha512",
+    "/Users/jaycci/.nuget/packages/system.runtime.compilerservices.unsafe/6.0.0/system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
