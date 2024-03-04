@@ -2,9 +2,10 @@
 class Program
 {
     static int num = 0;
-    static Spinlock spinlock = new Spinlock();
+    static Lock _lock = new Lock();
 
     static int max = 3;
+
     static void Main()
     {
         Thread t1 = new Thread(Thread_1);
@@ -20,39 +21,36 @@ class Program
     {
         for (int i = 0; i < max; i++)
         {
-            spinlock.Acquire();
+            _lock.Acquire();
             num++;
-            spinlock.Release();
+            Thread.Sleep(5000);
+            _lock.Release();
         }
     }
     static void Thread_2()
     {
         for (int i = 0; i < max; i++)
         {
-            spinlock.Acquire();
+            _lock.Acquire();
             num--;
-            spinlock.Release();
+            System.Console.WriteLine("TEST");
+
+            _lock.Release();
         }
     }
 }
 
-public class Spinlock
+public class Lock
 {
-    volatile int _lock = 0;
+    AutoResetEvent _lock = new AutoResetEvent(true);
     public void Acquire()
     {
-        while (true)
-        {
-            int desire = 1;
-            int expected = 0;
-            if (Interlocked.CompareExchange(ref _lock, desire, expected) == expected)
-                break;
-        }
+        _lock.WaitOne();
     }
 
 
     public void Release()
     {
-        _lock = 0;
+        _lock.Set();
     }
 }

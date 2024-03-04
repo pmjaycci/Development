@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.002.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Spinlock", "Spinlock.csproj", "{0D437587-45CA-484E-AAB6-C92BE3BC4CAF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0D437587-45CA-484E-AAB6-C92BE3BC4CAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D437587-45CA-484E-AAB6-C92BE3BC4CAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D437587-45CA-484E-AAB6-C92BE3BC4CAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D437587-45CA-484E-AAB6-C92BE3BC4CAF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4D3AF008-4D22-4322-B82D-DBDF9E0BD9EE}
+	EndGlobalSection
+EndGlobal
