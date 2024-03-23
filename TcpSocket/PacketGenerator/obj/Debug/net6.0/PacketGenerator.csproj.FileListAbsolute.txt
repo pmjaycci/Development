@@ -1,0 +1,15 @@
+/Users/jaycci/projects/Development/TcpSocket/PacketGenerator/bin/Debug/net6.0/PacketGenerator
+/Users/jaycci/projects/Development/TcpSocket/PacketGenerator/bin/Debug/net6.0/PacketGenerator.deps.json
+/Users/jaycci/projects/Development/TcpSocket/PacketGenerator/bin/Debug/net6.0/PacketGenerator.runtimeconfig.json
+/Users/jaycci/projects/Development/TcpSocket/PacketGenerator/bin/Debug/net6.0/PacketGenerator.dll
+/Users/jaycci/projects/Development/TcpSocket/PacketGenerator/bin/Debug/net6.0/ref/PacketGenerator.dll
+/Users/jaycci/projects/Development/TcpSocket/PacketGenerator/bin/Debug/net6.0/PacketGenerator.pdb
+/Users/jaycci/projects/Development/TcpSocket/PacketGenerator/obj/Debug/net6.0/PacketGenerator.csproj.AssemblyReference.cache
+/Users/jaycci/projects/Development/TcpSocket/PacketGenerator/obj/Debug/net6.0/PacketGenerator.GeneratedMSBuildEditorConfig.editorconfig
+/Users/jaycci/projects/Development/TcpSocket/PacketGenerator/obj/Debug/net6.0/PacketGenerator.AssemblyInfoInputs.cache
+/Users/jaycci/projects/Development/TcpSocket/PacketGenerator/obj/Debug/net6.0/PacketGenerator.AssemblyInfo.cs
+/Users/jaycci/projects/Development/TcpSocket/PacketGenerator/obj/Debug/net6.0/PacketGenerator.csproj.CoreCompileInputs.cache
+/Users/jaycci/projects/Development/TcpSocket/PacketGenerator/obj/Debug/net6.0/PacketGenerator.dll
+/Users/jaycci/projects/Development/TcpSocket/PacketGenerator/obj/Debug/net6.0/ref/PacketGenerator.dll
+/Users/jaycci/projects/Development/TcpSocket/PacketGenerator/obj/Debug/net6.0/PacketGenerator.pdb
+/Users/jaycci/projects/Development/TcpSocket/PacketGenerator/obj/Debug/net6.0/PacketGenerator.genruntimeconfig.cache

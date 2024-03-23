@@ -1,0 +1,15 @@
+/Users/jaycci/projects/Development/TcpSocket_Client/bin/Debug/net6.0/TcpSocket_Client
+/Users/jaycci/projects/Development/TcpSocket_Client/bin/Debug/net6.0/TcpSocket_Client.deps.json
+/Users/jaycci/projects/Development/TcpSocket_Client/bin/Debug/net6.0/TcpSocket_Client.runtimeconfig.json
+/Users/jaycci/projects/Development/TcpSocket_Client/bin/Debug/net6.0/TcpSocket_Client.dll
+/Users/jaycci/projects/Development/TcpSocket_Client/bin/Debug/net6.0/ref/TcpSocket_Client.dll
+/Users/jaycci/projects/Development/TcpSocket_Client/bin/Debug/net6.0/TcpSocket_Client.pdb
+/Users/jaycci/projects/Development/TcpSocket_Client/obj/Debug/net6.0/TcpSocket_Client.csproj.AssemblyReference.cache
+/Users/jaycci/projects/Development/TcpSocket_Client/obj/Debug/net6.0/TcpSocket_Client.GeneratedMSBuildEditorConfig.editorconfig
+/Users/jaycci/projects/Development/TcpSocket_Client/obj/Debug/net6.0/TcpSocket_Client.AssemblyInfoInputs.cache
+/Users/jaycci/projects/Development/TcpSocket_Client/obj/Debug/net6.0/TcpSocket_Client.AssemblyInfo.cs
+/Users/jaycci/projects/Development/TcpSocket_Client/obj/Debug/net6.0/TcpSocket_Client.csproj.CoreCompileInputs.cache
+/Users/jaycci/projects/Development/TcpSocket_Client/obj/Debug/net6.0/TcpSocket_Client.dll
+/Users/jaycci/projects/Development/TcpSocket_Client/obj/Debug/net6.0/ref/TcpSocket_Client.dll
+/Users/jaycci/projects/Development/TcpSocket_Client/obj/Debug/net6.0/TcpSocket_Client.pdb
+/Users/jaycci/projects/Development/TcpSocket_Client/obj/Debug/net6.0/TcpSocket_Client.genruntimeconfig.cache

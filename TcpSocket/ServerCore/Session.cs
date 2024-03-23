@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Net;
+﻿using System.Net;
 using System.Net.Sockets;
-using System.Text;
-using System.Threading;
-
 namespace ServerCore
 {
 	public abstract class PacketSession : Session
@@ -59,7 +54,7 @@ namespace ServerCore
 		SocketAsyncEventArgs _recvArgs = new SocketAsyncEventArgs();
 
 		public abstract void OnConnected(EndPoint endPoint);
-		public abstract int  OnRecv(ArraySegment<byte> buffer);
+		public abstract int OnRecv(ArraySegment<byte> buffer);
 		public abstract void OnSend(int numOfBytes);
 		public abstract void OnDisconnected(EndPoint endPoint);
 
@@ -118,7 +113,7 @@ namespace ServerCore
 			Clear();
 		}
 
-		#region 네트워크 통신
+		#region 네트워크 통신 (송신)
 
 		void RegisterSend()
 		{
@@ -171,7 +166,9 @@ namespace ServerCore
 				}
 			}
 		}
+		#endregion
 
+		#region 네트워크 통신 (수신)
 		void RegisterRecv()
 		{
 			if (_disconnected == 1)

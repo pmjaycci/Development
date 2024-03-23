@@ -1,0 +1,17 @@
+/Users/jaycci/projects/Development/MMO_Server/Server/bin/Debug/netcoreapp3.1/Server
+/Users/jaycci/projects/Development/MMO_Server/Server/bin/Debug/netcoreapp3.1/Server.deps.json
+/Users/jaycci/projects/Development/MMO_Server/Server/bin/Debug/netcoreapp3.1/Server.runtimeconfig.json
+/Users/jaycci/projects/Development/MMO_Server/Server/bin/Debug/netcoreapp3.1/Server.runtimeconfig.dev.json
+/Users/jaycci/projects/Development/MMO_Server/Server/bin/Debug/netcoreapp3.1/Server.dll
+/Users/jaycci/projects/Development/MMO_Server/Server/bin/Debug/netcoreapp3.1/Server.pdb
+/Users/jaycci/projects/Development/MMO_Server/Server/bin/Debug/netcoreapp3.1/ServerCore.dll
+/Users/jaycci/projects/Development/MMO_Server/Server/bin/Debug/netcoreapp3.1/ServerCore.pdb
+/Users/jaycci/projects/Development/MMO_Server/Server/obj/Debug/netcoreapp3.1/Server.csproj.AssemblyReference.cache
+/Users/jaycci/projects/Development/MMO_Server/Server/obj/Debug/netcoreapp3.1/Server.GeneratedMSBuildEditorConfig.editorconfig
+/Users/jaycci/projects/Development/MMO_Server/Server/obj/Debug/netcoreapp3.1/Server.AssemblyInfoInputs.cache
+/Users/jaycci/projects/Development/MMO_Server/Server/obj/Debug/netcoreapp3.1/Server.AssemblyInfo.cs
+/Users/jaycci/projects/Development/MMO_Server/Server/obj/Debug/netcoreapp3.1/Server.csproj.CoreCompileInputs.cache
+/Users/jaycci/projects/Development/MMO_Server/Server/obj/Debug/netcoreapp3.1/Server.csproj.CopyComplete
+/Users/jaycci/projects/Development/MMO_Server/Server/obj/Debug/netcoreapp3.1/Server.dll
+/Users/jaycci/projects/Development/MMO_Server/Server/obj/Debug/netcoreapp3.1/Server.pdb
+/Users/jaycci/projects/Development/MMO_Server/Server/obj/Debug/netcoreapp3.1/Server.genruntimeconfig.cache

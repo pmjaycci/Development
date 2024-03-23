@@ -1,3 +1,4 @@
+using Microsoft.VisualBasic;
 using ServerCore;
 using System;
 using System.Collections.Generic;
@@ -16,7 +17,7 @@ public class PacketManager
 
 	Dictionary<ushort, Func<PacketSession, ArraySegment<byte>, IPacket>> _makeFunc = new Dictionary<ushort, Func<PacketSession, ArraySegment<byte>, IPacket>>();
 	Dictionary<ushort, Action<PacketSession, IPacket>> _handler = new Dictionary<ushort, Action<PacketSession, IPacket>>();
-		
+
 	public void Register()
 	{
 		_makeFunc.Add((ushort)PacketID.C_LeaveGame, MakePacket<C_LeaveGame>);
@@ -25,11 +26,9 @@ public class PacketManager
 		_handler.Add((ushort)PacketID.C_Move, PacketHandler.C_MoveHandler);
 
 	}
-
 	public void OnRecvPacket(PacketSession session, ArraySegment<byte> buffer, Action<PacketSession, IPacket> onRecvCallback = null)
 	{
 		ushort count = 0;
-
 		ushort size = BitConverter.ToUInt16(buffer.Array, buffer.Offset);
 		count += 2;
 		ushort id = BitConverter.ToUInt16(buffer.Array, buffer.Offset + count);

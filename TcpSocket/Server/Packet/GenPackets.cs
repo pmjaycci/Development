@@ -12,7 +12,7 @@ public enum PacketID
 	S_PlayerList = 4,
 	C_Move = 5,
 	S_BroadcastMove = 6,
-	
+
 }
 
 public interface IPacket
@@ -72,8 +72,6 @@ public class S_BroadcastEnterGame : IPacket
 
 public class C_LeaveGame : IPacket
 {
-	
-
 	public ushort Protocol { get { return (ushort)PacketID.C_LeaveGame; } }
 
 	public void Read(ArraySegment<byte> segment)
@@ -81,7 +79,7 @@ public class C_LeaveGame : IPacket
 		ushort count = 0;
 		count += sizeof(ushort);
 		count += sizeof(ushort);
-		
+
 	}
 
 	public ArraySegment<byte> Write()
@@ -92,7 +90,7 @@ public class C_LeaveGame : IPacket
 		count += sizeof(ushort);
 		Array.Copy(BitConverter.GetBytes((ushort)PacketID.C_LeaveGame), 0, segment.Array, segment.Offset + count, sizeof(ushort));
 		count += sizeof(ushort);
-		
+
 
 		Array.Copy(BitConverter.GetBytes(count), 0, segment.Array, segment.Offset, sizeof(ushort));
 
@@ -141,7 +139,7 @@ public class S_PlayerList : IPacket
 		public float posX;
 		public float posY;
 		public float posZ;
-	
+
 		public void Read(ArraySegment<byte> segment, ref ushort count)
 		{
 			this.isSelf = BitConverter.ToBoolean(segment.Array, segment.Offset + count);
@@ -155,7 +153,7 @@ public class S_PlayerList : IPacket
 			this.posZ = BitConverter.ToSingle(segment.Array, segment.Offset + count);
 			count += sizeof(float);
 		}
-	
+
 		public bool Write(ArraySegment<byte> segment, ref ushort count)
 		{
 			bool success = true;
@@ -170,7 +168,7 @@ public class S_PlayerList : IPacket
 			Array.Copy(BitConverter.GetBytes(this.posZ), 0, segment.Array, segment.Offset + count, sizeof(float));
 			count += sizeof(float);
 			return success;
-		}	
+		}
 	}
 	public List<Player> players = new List<Player>();
 

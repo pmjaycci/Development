@@ -1,24 +1,21 @@
-# Visual Studio Code
+# Unity specific files
+/[Tt]emp/
+/[Oo]bj/
+/[Bb]uild/
+/[Ll]ibrary/
+/[Ll]ocal[Cc]ache/
+/[Rr]eported[Ii]ssues/
+/[Bb]uilds/
+/[Ll]ogs/
+
+# Visual Studio Code에서 생성된 디렉토리
 .vscode/
 
-# Visual Studio
-.vs/
-bin/
-obj/
-*.suo
-*.user
-*.userosscache
-*.sln.docstates
-
-# Rider
+# Rider에서 생성된 디렉토리
 .idea/
 
 # User-specific files
 *.rsuser
-*.suo
-*.user
-*.userosscache
-*.sln.docstates
 
 # Mono Auto Generated Files
 mono_crash.*
@@ -32,9 +29,6 @@ Desktop.ini
 
 # Recycle Bin used on file shares
 $RECYCLE.BIN/
-
-# VS Code directories
-.vscode/
 
 # Windows Installer files
 *.cab
@@ -55,66 +49,69 @@ $RECYCLE.BIN/
 *.userosscache
 *.sln.docstates
 
-# Mono Auto Generated Files
-mono_crash.*
-
-# Windows image file caches
-Thumbs.db
-ehthumbs.db
-
-# Folder config file
-Desktop.ini
-
-# Recycle Bin used on file shares
-$RECYCLE.BIN/
-
-# VS Code directories
-.vscode/
-
-# Windows Installer files
-*.cab
-*.msi
-*.msm
-*.msp
-
-# Windows shortcuts
-*.lnk
-
-# JetBrains Rider
-.idea/
-*.sln.iml
-
-# User-specific files
-*.suo
-*.user
-*.userosscache
-*.sln.docstates
-
-# Mono Auto Generated Files
-mono_crash.*
-
-# Windows image file caches
-Thumbs.db
-ehthumbs.db
-
-# Folder config file
-Desktop.ini
-
-# Recycle Bin used on file shares
-$RECYCLE.BIN/
-
-# VS Code directories
-.vscode/
-
-# Windows Installer files
-*.cab
-*.msi
-*.msm
-*.msp
-
-# Windows shortcuts
-*.lnk
-
-# JetBrains Rider
-.idea/
-*.sln.iml
+# Unity generated files
+/[Bb]uild/
+/[Ll]ibrary/
+/[Oo]bj/
+/*.pidb
+/*.pidb.meta
+/*.sln*.userprefs
+/*.userprefs
+/*.user
+/*.unityproj
+/*.unitypackage
+/*.mat
+/*.meta
+/*.prefab
+/*.unity
+/*.asset
+/*.asset.meta
+/*.guiskin
+/*.mat
+/*.meta
+/*.physicsMaterial
+/*.physicsMaterial2D
+/*.physicMaterial
+/*.physicMaterial2D
+/*.txt
+/*.cubemap
+/*.flare
+/*.mask
+/*.mixer
+/*.playable
+/*.preset
+/*.overrideController
+/*.shader
+/*.cginc
+/*.lightingData
+/*.unitypackage
+/*.ttf
+/*.otf
+/*.dll
+/*.mdb
+/*.pdb
+/*.sqlite
+/*.pdb
+/*.jpg
+/*.jpeg
+/*.png
+/*.gif
+/*.tiff
+/*.bmp
+/*.exr
+/*.psd
+/*.aif
+/*.aiff
+/*.wav
+/*.mp3
+/*.ogg
+/*.ai
+/*.eps
+/*.pdf
+/*.tif
+/*.unitypackage
+/*.unitypackage.meta
+/*.xcf
+/*.mat
+/*.asset
+/*.asset.meta

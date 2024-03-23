@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "3+R72aPNKKMZEprrplDg6NjzcLZGOTxFd92XyscWOZIUFiw6KR7mCcWPMGXW9a/QV2K8kG1ZeBMDZyJUY52Ihw==",
+  "success": true,
+  "projectFilePath": "/Users/jaycci/projects/Development/MessagingApp/ServerCore/ServerCore.csproj",
+  "expectedPackageFiles": [
+    "/Users/jaycci/.nuget/packages/newtonsoft.json/13.0.3/newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

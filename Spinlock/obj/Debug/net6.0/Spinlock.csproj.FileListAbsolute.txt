@@ -1,0 +1,15 @@
+/Users/jaycci/projects/Development/Spinlock/bin/Debug/net6.0/Spinlock
+/Users/jaycci/projects/Development/Spinlock/bin/Debug/net6.0/Spinlock.deps.json
+/Users/jaycci/projects/Development/Spinlock/bin/Debug/net6.0/Spinlock.runtimeconfig.json
+/Users/jaycci/projects/Development/Spinlock/bin/Debug/net6.0/Spinlock.dll
+/Users/jaycci/projects/Development/Spinlock/bin/Debug/net6.0/ref/Spinlock.dll
+/Users/jaycci/projects/Development/Spinlock/bin/Debug/net6.0/Spinlock.pdb
+/Users/jaycci/projects/Development/Spinlock/obj/Debug/net6.0/Spinlock.csproj.AssemblyReference.cache
+/Users/jaycci/projects/Development/Spinlock/obj/Debug/net6.0/Spinlock.GeneratedMSBuildEditorConfig.editorconfig
+/Users/jaycci/projects/Development/Spinlock/obj/Debug/net6.0/Spinlock.AssemblyInfoInputs.cache
+/Users/jaycci/projects/Development/Spinlock/obj/Debug/net6.0/Spinlock.AssemblyInfo.cs
+/Users/jaycci/projects/Development/Spinlock/obj/Debug/net6.0/Spinlock.csproj.CoreCompileInputs.cache
+/Users/jaycci/projects/Development/Spinlock/obj/Debug/net6.0/Spinlock.dll
+/Users/jaycci/projects/Development/Spinlock/obj/Debug/net6.0/ref/Spinlock.dll
+/Users/jaycci/projects/Development/Spinlock/obj/Debug/net6.0/Spinlock.pdb
+/Users/jaycci/projects/Development/Spinlock/obj/Debug/net6.0/Spinlock.genruntimeconfig.cache

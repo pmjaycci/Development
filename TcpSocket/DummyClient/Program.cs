@@ -7,7 +7,6 @@ using System.Threading;
 
 namespace DummyClient
 {
-	
 
 	class Program
 	{
@@ -21,9 +20,10 @@ namespace DummyClient
 
 			Connector connector = new Connector();
 
-			connector.Connect(endPoint, 
+			connector.Connect(endPoint,
 				() => { return SessionManager.Instance.Generate(); },
-				500);
+				1);
+
 
 			while (true)
 			{
@@ -38,6 +38,7 @@ namespace DummyClient
 
 				Thread.Sleep(250);
 			}
+
 		}
 	}
 }
