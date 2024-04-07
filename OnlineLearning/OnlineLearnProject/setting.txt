@@ -1,0 +1,17 @@
+pip install flask
+
+# 가상 환경 생성 (이름은 'venv'를 사용하는 것이 일반적)
+python3 -m venv venv
+
+# 가상 환경 활성화
+MacOs
+source venv/bin/activate
+Windows
+venv\Scripts\activate
+
+# 가상 환경 비활성화
+deactivate
+
+pip install flask
+pip install iamport
+pip install requests

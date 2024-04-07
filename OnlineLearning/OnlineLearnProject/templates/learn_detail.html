@@ -6,13 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>메인 페이지</title>
     <script src="https://cdn.iamport.kr/v1/iamport.js"></script>
-    <!-- jQuery 
-        <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-    -->
-    <!-- iamport.payment.js 
-        <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
-        
-    -->
     <script src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
     <script>
         var IMP = window.IMP;
@@ -40,9 +33,10 @@
 </head>
 
 <body>
+    <!-- 로그인 / 마이페이지 표시 -->
     {% if is_login == False%}
     <h1>Login</h1>
-    <form action="/login" method="post">
+    <form action="account/login" method="post">
         <label for="username">Username:</label>
         <input type="text" id="username" name="username" required><br>
         <label for="password">Password:</label>
@@ -50,15 +44,15 @@
         <button type="submit">Login</button>
     </form>
     {%else%}
-    <form action="/logout" method="get">
+    <form action="account/logout" method="get">
         <button type="submit">Logout</button>
     </form>
-    <form action="/my_page" method="post">
+    <form action="my_page" method="post">
         <button type="submit">마이 페이지</button>
     </form>
     {%endif%}
     <p>{{login_user}}</p>
-
+    <!-- 로그인 / 마이페이지 표시 끝-->
     <div>
         <td colspan="2">
             <table border="1">
@@ -75,7 +69,7 @@
                     {% if user_id != learn_detail['user_id']%}
                     <td>
                         <h2>구매하기</h2>
-                        <form action="/pay" method="post">
+                        <form action="/payment" method="post">
                             <input type="hidden" name="user_id" value="{{ user_id }}">
                             <input type="hidden" name="online_learn_id" value="{{ learn_detail['id'] }}">
                             <input type="hidden" name="sell_user_id" value="{{ learn_detail['user_id'] }}">

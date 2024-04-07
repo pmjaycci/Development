@@ -8,9 +8,10 @@
 </head>
 
 <body>
+    <!-- 로그인 / 마이페이지 표시 -->
     {% if is_login == False%}
     <h1>Login</h1>
-    <form action="/login" method="post">
+    <form action="account/login" method="post">
         <label for="username">Username:</label>
         <input type="text" id="username" name="username" required><br>
         <label for="password">Password:</label>
@@ -18,17 +19,18 @@
         <button type="submit">Login</button>
     </form>
     {%else%}
-    <form action="/logout" method="post">
+    <form action="account/logout" method="get">
         <button type="submit">Logout</button>
     </form>
-    <form action="/my_page" method="post">
+    <form action="my_page" method="post">
         <button type="submit">마이 페이지</button>
     </form>
     {%endif%}
     <p>{{login_user}}</p>
+    <!-- 로그인 / 마이페이지 표시 끝-->
 
     <h1>게시글 작성</h1>
-    <form method="post" action="{{ url_for('learn_add_post_test') }}">
+    <form method="post" action="{{ url_for('learn_add.post') }}">
         <p>판매 금액 <input type="number" id="price" name="price" class="form-control"> <br></p>
 
         <label for="title">제목:</label>
@@ -54,7 +56,7 @@
     {% else %}
     <p>#Hash Tag : {{hash_tag}}</p>
     {% endif %}
-    <form action="/add_hash_tag" method="post">
+    <form action="learn_add/add_hash_tag" method="post">
         <input type="text" name="new_hash_tag"><br>
         <input type="submit">
     </form>

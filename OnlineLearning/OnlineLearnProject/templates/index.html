@@ -8,9 +8,10 @@
 </head>
 
 <body>
+    <!-- 로그인 / 마이페이지 표시 -->
     {% if is_login == False%}
     <h1>Login</h1>
-    <form action="/login" method="post">
+    <form action="account/login" method="post">
         <label for="username">Username:</label>
         <input type="text" id="username" name="username" required><br>
         <label for="password">Password:</label>
@@ -18,21 +19,20 @@
         <button type="submit">Login</button>
     </form>
     {%else%}
-    <form action="/logout" method="get">
+    <form action="account/logout" method="get">
         <button type="submit">Logout</button>
     </form>
-    <form action="/my_page" method="post">
+    <form action="my_page" method="post">
         <button type="submit">마이 페이지</button>
     </form>
     {%endif%}
     <p>{{login_user}}</p>
-
+    <!-- 로그인 / 마이페이지 표시 끝-->
     <div>
         <form action="/learn_add" method="post">
             <button type="submit">강의 등록</button>
         </form>
         <h1> 강의 목록 </h1>
-
 
         {%for row in rows%}
         <td colspan="2">
@@ -51,7 +51,8 @@
                 <tr>
                     <td>제목</td>
                     <td>
-                        <a href="{{ url_for('learn_detail', learn_id=row['id']) }}">id{{row['id']}}:{{row['title']}}</a>
+                        <a
+                            href="{{ url_for('learn_detail.index', learn_id=row['id']) }}">id{{row['id']}}:{{row['title']}}</a>
                     </td>
                 </tr>
                 </p>

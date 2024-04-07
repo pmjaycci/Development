@@ -1,9 +1,8 @@
 # 아임포트 API 키 설정
 import datetime
-from flask import Blueprint, redirect, request, url_for
 from iamport import Iamport
 import requests
-from model.database import get_db
+from model.database import Database
 
 imp_key = '4341238676383388'
 imp_secret = 'WN35WC5hqgEQBX0RgChb8TTIa1VonT1EGVSpG4Q7ntEggU9Yyx1zkGyMTRVZFxWXn71WaSR1c78CP9IV'
@@ -25,7 +24,8 @@ class Payment:
         res = req.json()
         # print(res)
         access_token = res['response']['access_token']
-        one_time_buy(access_token, payload, user_id, learn_id, sell_user_id)
+        Payment.one_time_buy(access_token, payload,
+                             user_id, learn_id, sell_user_id)
         pass
 
     def one_time_buy(access_token, info, user_id, learn_id, sell_user_id):
@@ -36,34 +36,27 @@ class Payment:
             "Authorization": f'Bearer {access_token}'
 
         }
-    req = requests.post(
-        'https://api.iamport.kr/subscribe/payments/onetime', json=info, headers=header)
-    res = req.json()
-    if res["code"] == 0:
-        current_time = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-        response = res["response"]
-        amount = response['amount']
-        # 'https://npg.nicepay.co.kr/issue/IssueLoader.do?TID=iamport01m01162403290714307137&type=0&InnerWin=Y',
-        receipt_url = response['receipt_url']
-        card_name = response["card_name"]
-        db = get_db()
+        req = requests.post(
+            'https://api.iamport.kr/subscribe/payments/onetime', json=info, headers=header)
+        res = req.json()
+        if res["code"] == 0:
+            current_time = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+            response = res["response"]
+            amount = response['amount']
+            # 'https://npg.nicepay.co.kr/issue/IssueLoader.do?TID=iamport01m01162403290714307137&type=0&InnerWin=Y',
+            receipt_url = response['receipt_url']
+            card_name = response["card_name"]
 
-        sql = f'INSERT INTO buy_online_learn (user_id, online_learn_id, amount, card_name, receipt_url, created_at) VALUES(?,?,?,?,?,?)'
-        cursor = db.execute(sql, (user_id, learn_id, amount,
-                            card_name, receipt_url, current_time))
-        db.commit()
+            sql = f'INSERT INTO buy_online_learn (user_id, online_learn_id, amount, card_name, receipt_url, created_at) VALUES(?,?,?,?,?,?)'
+            Database.write_db(sql, user_id, learn_id, amount,
+                              card_name, receipt_url, current_time)
+            sql = f'INSERT INTO sell_online_learn (user_id, online_learn_id, created_at) VALUES(?,?,?)'
+            Database.write_db(sql, sell_user_id, learn_id, current_time)
 
-        sql = f'INSERT INTO sell_online_learn (user_id, online_learn_id, created_at) VALUES(?,?,?)'
-        cursor = db.execute(sql, (sell_user_id, learn_id, current_time))
-        db.commit()
+            return
 
-        cursor.close()
-        db.close()
-
-        pass
-
-    print(res)
-    pass
+        print(res)
+        return
 
 
 '''
