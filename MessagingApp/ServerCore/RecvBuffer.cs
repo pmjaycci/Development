@@ -44,7 +44,7 @@ namespace ServerCore
         }
 
 
-        public ArraySegment<byte> GetReadSegment
+        public ArraySegment<byte> ReadSegment
         {
             get
             {
@@ -52,7 +52,7 @@ namespace ServerCore
                 return new ArraySegment<byte>(_buffer.Array, readOffset, RemainingReadDataSize);
             }
         }
-        public ArraySegment<byte> GetWriteSegment
+        public ArraySegment<byte> WriteSegment
         {
             get
             {

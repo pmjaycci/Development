@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>메인 페이지</title>
+    <script src="https://cdn.iamport.kr/v1/iamport.js"></script>
+    <!-- jQuery 
+        <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    -->
+    <!-- iamport.payment.js 
+        <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
+        
+    -->
+    <script src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
+    <script>
+        var IMP = window.IMP;
+        IMP.init("imp07172173"); // 예: imp00000000
+        IMP.request_pay({ // param
+            pg: "kcp.{iamport01m}",
+            pay_method: "card",
+            merchant_uid: "ORD20180131-0000022211",
+            name: "노르웨이 회전 의자",
+            amount: 11,
+            buyer_email: "gildong@gmail.com",
+            buyer_name: "홍길동",
+            buyer_tel: "010-4242-4242",
+            buyer_addr: "서울특별시 강남구 신사동",
+            buyer_postcode: "01181"
+        }, function (rsp) { // callback
+            if (rsp.success) {
+                // 결제 성공 시 로직
+                console.log("결제 성공");
+            } else {
+                // 결제 실패 시 로직
+                console.log("결제 실패:", rsp.error_msg);
+            }
+        }); </script>
+</head>
+
+<body>
+    {% if is_login == False%}
+    <h1>Login</h1>
+    <form action="/login" method="post">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required><br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br>
+        <button type="submit">Login</button>
+    </form>
+    {%else%}
+    <form action="/logout" method="get">
+        <button type="submit">Logout</button>
+    </form>
+    <form action="/my_page" method="post">
+        <button type="submit">마이 페이지</button>
+    </form>
+    {%endif%}
+    <p>{{login_user}}</p>
+
+    <div>
+        <td colspan="2">
+            <table border="1">
+                <tr>
+                    <td> 번호 </td>
+                    <td> {{ learn_detail['id'] }} </td>
+                    <td> 판매자 </td>
+                    <td>{{ learn_detail['user_id'] }}</td>
+                </tr>
+            </table>
+            <!-- 결제 관련 -->
+            <table border="1">
+                <tr>
+                    {% if user_id != learn_detail['user_id']%}
+                    <td>
+                        <h2>구매하기</h2>
+                        <form action="/pay" method="post">
+                            <input type="hidden" name="user_id" value="{{ user_id }}">
+                            <input type="hidden" name="online_learn_id" value="{{ learn_detail['id'] }}">
+                            <input type="hidden" name="sell_user_id" value="{{ learn_detail['user_id'] }}">
+                            <label for="amount">결제금액:</label>
+                            <input type="text" id="amount" name="amount"><br><br>
+                            <label for="card_number">카드번호:</label>
+                            <input type="text" id="card_number_1" name="card_number_1">
+                            <input type="text" id="card_number_2" name="card_number_2">
+                            <input type="text" id="card_number_3" name="card_number_3">
+                            <input type="text" id="card_number_4" name="card_number_4">
+                            <br><br>
+                            <label for="expiry">유효기간(년도-월):</label>
+                            <input type="text" id="expiry_year" name="expiry_year" placeholder="YYYY">
+                            -
+                            <input type="text" id="expiry_month" name="expiry_month" placeholder="MM"><br><br>
+                            <label for="password">비밀번호 앞 2자리(**):</label>
+                            <input type="password" id="password" name="password"><br><br>
+                            <label for="password">생년월일 6자리:</label>
+                            <input type="text" id="birth" name="birth" placeholder="920101"><br><br>
+                            <button type="submit" value="Pay">구매하기</button>
+                        </form>
+
+                    </td>
+                    {% endif%}
+                </tr>
+            </table>
+            <table border="1">
+
+                <tr>
+                    <td> 강의 제목 </td>
+                    <td>{{ learn_detail['title']}}</td>
+                </tr>
+            </table>
+            <table>
+                <tr>
+                    {{learn_detail['contents']|safe}}
+                </tr>
+            </table>
+        </td>
+    </div>
+    <div>
+        <h2> 댓글 목록 </h2>
+        {%for row in comment_rows%}
+        <tr>
+            <td colspan="2">
+                <table border="1">
+                    <tr>
+                        <td>{{ row[0]['user_id'] }}</td>
+                        <td>{{ row[0]['comment'] }}</td>
+                        {% if user_id == row[0]['user_id']%}
+                        <td>
+                            <form action="/learn_detail_comment_update" method="post">
+                                <input type="hidden" name="learn_id" value="{{ learn_detail['id'] }}">
+                                <input type="hidden" name="comment_id" value="{{row[0]['id']}}">
+                                <input placeholder="내용을 입력해 주세요." id="comment" name="comment"
+                                    class="form-control"></input>
+                                <button type="submit" class="btn btn-primary">수정</button>
+                            </form>
+                        </td>
+                        <td>
+                            <form action="/learn_detail_comment_delete" method="post">
+                                <input type="hidden" name="learn_id" value="{{ learn_detail['id'] }}">
+                                <input type="hidden" name="comment_id" value="{{row[0]['id']}}">
+                                <button type="submit" class="btn btn-primary">삭제</button>
+                            </form>
+                        </td>
+                        {% endif%}
+
+                    </tr>
+                    <!-- 대댓글 정보 불러오기 -->
+                    {% for reply_row in row[1] %}
+                    <tr>
+                        <td>ㄴ</td>
+                        <td>{{ reply_row['user_id'] }} </td>
+                        <td>{{ reply_row['comment'] }}</td>
+                        {% if user_id == row[0]['user_id']%}
+                        <td>
+                            <form action="/learn_detail_comment_reply_update" method="post">
+                                <input type="hidden" name="learn_id" value="{{ learn_detail['id'] }}">
+                                <input type="hidden" name="comment_id" value="{{reply_row['id']}}">
+                                <input placeholder="내용을 입력해 주세요." id="comment" name="comment"
+                                    class="form-control"></input>
+                                <button type="submit" class="btn btn-primary">수정</button>
+                            </form>
+                        </td>
+                        <td>
+                            <form action="/learn_detail_comment_reply_delete" method="post">
+                                <input type="hidden" name="learn_id" value="{{ learn_detail['id'] }}">
+                                <input type="hidden" name="delete_id" value="{{reply_row['id']}}">
+                                <button type="submit" class="btn btn-primary">삭제</button>
+                            </form>
+                        </td>
+                        {% endif %}
+                    </tr>
+                    {% endfor %}
+                </table>
+            </td>
+        </tr>
+        <!-- 대댓글 남기기-->
+        <form action="/learn_detail_comment_reply_post" method="post">
+            <input type="hidden" name="learn_id" value="{{learn_detail['id']}}">
+            <input type="hidden" name="comment_id" value="{{row[0]['id']}}">
+            <input placeholder="내용을 입력해 주세요." id="comment" name="comment" class="form-control"></input>
+            <button type="submit" class="btn btn-primary">작성</button>
+        </form>
+        <br>
+        {% endfor %}
+
+    </div>
+    <!-- 댓글 작성 -->
+    <table border="1">
+        <tr>
+            <td>
+                <form action="/learn_detail_comment_post" method="post">
+                    <input type="hidden" name="learn_id" value="{{ learn_detail['id'] }}">
+                    <p>댓글 입력창</p>
+                    <span>내용</span>
+                    <input placeholder="댓글을 남겨주세요" id="comment" name="comment" class="form-control"></input>
+                    <button type="submit" class="btn btn-primary">작성</button>
+                    <p></p>
+                </form>
+            </td>
+
+        </tr>
+
+    </table>
+
+</body>
+
+</html>

@@ -11,7 +11,7 @@ namespace ServerCore
 
         public static ArraySegment<byte> Open(int reserveSize)
         {
-            if (CurrentBuffer.Values == null)
+            if (CurrentBuffer.Value == null)
                 CurrentBuffer.Value = new SendBuffer(ChunkSize);
 
             if (CurrentBuffer.Value.RemainingBufferSize < reserveSize)

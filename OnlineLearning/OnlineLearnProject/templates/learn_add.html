@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Add Post</title>
+    <script src="https://cdn.ckeditor.com/ckeditor5/38.0.0/classic/ckeditor.js"></script>
+
+</head>
+
+<body>
+    {% if is_login == False%}
+    <h1>Login</h1>
+    <form action="/login" method="post">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required><br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br>
+        <button type="submit">Login</button>
+    </form>
+    {%else%}
+    <form action="/logout" method="post">
+        <button type="submit">Logout</button>
+    </form>
+    <form action="/my_page" method="post">
+        <button type="submit">마이 페이지</button>
+    </form>
+    {%endif%}
+    <p>{{login_user}}</p>
+
+    <h1>게시글 작성</h1>
+    <form method="post" action="{{ url_for('learn_add_post_test') }}">
+        <p>판매 금액 <input type="number" id="price" name="price" class="form-control"> <br></p>
+
+        <label for="title">제목:</label>
+        <input type="text" id="title" name="title"><br>
+        <label for="content">내용:</label><br>
+        <textarea id="content" name="content"></textarea><br>
+        <button type="submit">판매 등록</button>
+    </form>
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#content'), {
+                // 이미지 업로드 기능 활성화
+                ckfinder: {
+                    uploadUrl: '/upload_image'
+                }
+            })
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+    {% if hash_tag == ""%}
+    <p>#Hash Tag : 해쉬 태그를 추가해주세요</p>
+    {% else %}
+    <p>#Hash Tag : {{hash_tag}}</p>
+    {% endif %}
+    <form action="/add_hash_tag" method="post">
+        <input type="text" name="new_hash_tag"><br>
+        <input type="submit">
+    </form>
+</body>
+
+</html>

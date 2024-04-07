@@ -3,15 +3,10 @@
 /Users/jaycci/projects/Development/MessagingApp/ServerCore/obj/Debug/net6.0/ServerCore.AssemblyInfoInputs.cache
 /Users/jaycci/projects/Development/MessagingApp/ServerCore/obj/Debug/net6.0/ServerCore.AssemblyInfo.cs
 /Users/jaycci/projects/Development/MessagingApp/ServerCore/obj/Debug/net6.0/ServerCore.csproj.CoreCompileInputs.cache
-/Users/jaycci/projects/Development/MessagingApp/ServerCore/bin/Debug/net6.0/ServerCore
 /Users/jaycci/projects/Development/MessagingApp/ServerCore/bin/Debug/net6.0/ServerCore.deps.json
-/Users/jaycci/projects/Development/MessagingApp/ServerCore/bin/Debug/net6.0/ServerCore.runtimeconfig.json
 /Users/jaycci/projects/Development/MessagingApp/ServerCore/bin/Debug/net6.0/ServerCore.dll
 /Users/jaycci/projects/Development/MessagingApp/ServerCore/bin/Debug/net6.0/ref/ServerCore.dll
 /Users/jaycci/projects/Development/MessagingApp/ServerCore/bin/Debug/net6.0/ServerCore.pdb
-/Users/jaycci/projects/Development/MessagingApp/ServerCore/bin/Debug/net6.0/Newtonsoft.Json.dll
-/Users/jaycci/projects/Development/MessagingApp/ServerCore/obj/Debug/net6.0/ServerCore.csproj.CopyComplete
 /Users/jaycci/projects/Development/MessagingApp/ServerCore/obj/Debug/net6.0/ServerCore.dll
 /Users/jaycci/projects/Development/MessagingApp/ServerCore/obj/Debug/net6.0/ref/ServerCore.dll
 /Users/jaycci/projects/Development/MessagingApp/ServerCore/obj/Debug/net6.0/ServerCore.pdb
-/Users/jaycci/projects/Development/MessagingApp/ServerCore/obj/Debug/net6.0/ServerCore.genruntimeconfig.cache

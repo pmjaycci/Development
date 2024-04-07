@@ -1,6 +1,7 @@
 using System.Net;
 using System.Net.Sockets;
 using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
 
 namespace ServerCore
 {
@@ -21,6 +22,7 @@ namespace ServerCore
 
 
                 ushort recvSize = BitConverter.ToUInt16(buffer.Array, buffer.Offset);
+
                 if (buffer.Count < recvSize) break;
 
                 //-- 컨텐츠 세션에서 패킷 처리
@@ -34,6 +36,7 @@ namespace ServerCore
                 int remainBufferSize = buffer.Count - recvSize;
                 //-- 처리한 버퍼만큼 버퍼크기 줄이기
                 buffer = new ArraySegment<byte>(buffer.Array, offset, remainBufferSize);
+
 
             }
             if (packetCount > 1)
@@ -63,6 +66,7 @@ namespace ServerCore
         public void Start(Socket socket)
         {
             _socket = socket;
+            _recvArgs = new SocketAsyncEventArgs();
             _recvArgs.Completed += new EventHandler<SocketAsyncEventArgs>(OnRecvCompleted);
             _sendArgs.Completed += new EventHandler<SocketAsyncEventArgs>(OnSendCompleted);
 
@@ -99,12 +103,13 @@ namespace ServerCore
             _recvBuffer.Clean();
 
             //-- 수신 가능한 버퍼크기만큼의 segment 생성
-            ArraySegment<byte> segment = _recvBuffer.GetWriteSegment;
+            ArraySegment<byte> segment = _recvBuffer.WriteSegment;
 
             _recvArgs.SetBuffer(segment.Array, segment.Offset, segment.Count);
             try
             {
                 bool pending = _socket.ReceiveAsync(_recvArgs);
+
                 if (pending == false)
                 {
                     OnRecvCompleted(null, _recvArgs);
@@ -112,7 +117,7 @@ namespace ServerCore
             }
             catch (Exception e)
             {
-                System.Console.WriteLine($"RegisterRecvFailed\n==>{e.Message}");
+                System.Console.WriteLine($"RegisterRecv Failed\n==>{e}");
             }
 
         }
@@ -131,7 +136,7 @@ namespace ServerCore
                     }
 
                     //-- 컨텐츠 처리 하는쪽에 데이터 넘겨주고 처리된 사이즈 가져오기
-                    int processLen = OnRecv(_recvBuffer.GetReadSegment);
+                    int processLen = OnRecv(_recvBuffer.ReadSegment);
 
                     //-- 수신한 버퍼 크기만큼 _readPos 증가
                     bool isAbleRead = _recvBuffer.OnRead(processLen);

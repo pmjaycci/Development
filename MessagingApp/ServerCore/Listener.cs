@@ -1,5 +1,8 @@
+using System.Diagnostics;
 using System.Net;
 using System.Net.Sockets;
+using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
 
 namespace ServerCore
 {
@@ -8,17 +11,20 @@ namespace ServerCore
         Socket _listenSocket;
         Session _session;
         string line = "---------------------------------------";
-        public void Init(IPEndPoint endPoint, Session session)
+        public void Init(IPEndPoint endPoint, Session session, int register = 1, int backlog = 100)
         {
             _listenSocket = new Socket(endPoint.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
             _session = session;
             _listenSocket.Bind(endPoint);
 
-            _listenSocket.Listen(10);
+            _listenSocket.Listen(backlog);
+            for (int i = 0; i < register; i++)
+            {
+                SocketAsyncEventArgs args = new SocketAsyncEventArgs();
+                args.Completed += OnAcceptCompleted;//new EventHandler<SocketAsyncEventArgs>(OnAcceptCompleted);
+                RegisterAccept(args);
+            }
 
-            SocketAsyncEventArgs args = new SocketAsyncEventArgs();
-            args.Completed += new EventHandler<SocketAsyncEventArgs>(OnAcceptCompleted);
-            RegisterAccept(args);
         }
         public void RegisterAccept(SocketAsyncEventArgs args)
         {
@@ -32,9 +38,11 @@ namespace ServerCore
 
         public void OnAcceptCompleted(object sender, SocketAsyncEventArgs args)
         {
+
             if (args.SocketError == SocketError.Success)
             {
-                //TODO: Session 업무 처리
+                _session.Start(args.AcceptSocket);
+                _session.OnConnected(args.AcceptSocket.RemoteEndPoint);
             }
             else
                 System.Console.WriteLine($"OnAcceptCompleted Error!\n{line}\n==>{args.SocketError}\n{line}");
